@@ -17,12 +17,12 @@ ENV JAVA_HOME /usr/lib/jvm/jre
 ENV IP grep $HOSTNAME /etc/hosts | cut -f1 -s
 
 # Update image
-RUN yum update -y && \
-#RPM_URL=$(curl http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html |grep -o http://download.oracle.com.*jdk.*x64\.rpm) && \
-#curl -k -L -o jdk-8.rpm --header "Cookie: oraclelicense=accept-securebackup-cookie" $RPM_URL && \
-#yum localinstall -y jdk-8.rpm && rm jdk-8.rpm && \
-yum install -y which grep sed awk unzip openssl java-1.7.0-openjdk-devel tomcat && \
-yum clean all
+#RUN yum update -y && \
+##RPM_URL=$(curl http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html |grep -o http://download.oracle.com.*jdk.*x64\.rpm) && \
+##curl -k -L -o jdk-8.rpm --header "Cookie: oraclelicense=accept-securebackup-cookie" $RPM_URL && \
+##yum localinstall -y jdk-8.rpm && rm jdk-8.rpm && \
+#yum install -y which grep sed awk unzip openssl java-1.7.0-openjdk-devel tomcat && \
+#yum clean all
 
 # Create an index.html file
 RUN mkdir -p /opt/openam/docker-config
