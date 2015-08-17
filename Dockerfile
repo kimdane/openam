@@ -5,7 +5,7 @@
 # this FROM line instead:
 # FROM registry.access.redhat.com/rhel 
 # Pull the rhel image from the local repository
-FROM rhel 
+FROM conductdocker/rhel7:latest 
 
 MAINTAINER Kim Daniel Engebretsen 
 
