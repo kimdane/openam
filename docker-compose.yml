@@ -1,0 +1,10 @@
+am:
+        build: .
+        command: /opt/openam/run.sh
+        ports: 
+                - "8443:8443"
+                - "1636:1636"
+        links:  
+                - dj
+dj:
+        image: dj
