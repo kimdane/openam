@@ -55,4 +55,6 @@ ADD server.sh /opt/openam/server.sh
 #RUN update-ca-trust extract
 ADD configurator.properties docker-config/configurator.properties
 ADD run.sh /opt/openam/run.sh
+VOLUME /secrets /opt/openam/sso/ /var/log/tomcat
+EXPOSE 8443 8080
 CMD ["/opt/openam/run.sh"]

@@ -29,7 +29,7 @@ echo $(grep $HOSTNAME /etc/hosts | cut -f1) am >> /etc/hosts
 nohup /opt/openam/server.sh &
 
 echo "Waiting 30 sec for tomcat"; 
-sleep 35
+sleep 45
 ${JAVA_HOME}/bin/java -jar /opt/openam/configurator/openam-configurator-tool-12.0.1.jar -f /opt/openam/docker-config/configurator.properties
 
 cd /opt/openam/tools/; /opt/openam/tools/setup --acceptLicense -p /opt/openam
