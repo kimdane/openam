@@ -1,15 +1,16 @@
 FROM tomcat:8-jre8
 
-MAINTAINER kim@conduct.no
+MAINTAINER kimdane
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
+ENV openambin=/opt/repo/bin/openam
+ENV openamzip=/opt/repo/bin/zip/openam.zip
+
 WORKDIR $CATALINA_HOME
 
+ADD run-openam.sh /opt/run-openam.sh
 EXPOSE 8080
 
-# download openam nightly build war
-# Trick taken from wadahiro/docker-openam-nightly!
- 
-ADD run-openam.sh /tmp/run-openam.sh
+VOLUME ["/opt/repo"]
 
-CMD ["/tmp/run-openam.sh"]
+CMD ["/opt/run-openam.sh"]

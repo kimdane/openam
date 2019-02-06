@@ -9,12 +9,15 @@ cat >/root/.openamcfg/AMConfig_usr_local_tomcat_webapps_openam_ <<HERE
 HERE
 
 cd $CATALINA_HOME
-file=/opt/repo/bin/staging/openam.war
-if [ -s "$file" ]; then
-		cp "$file" webapps/openam.war
+if [ ! -e "$openambin" ] && [ -s "$openamzip" ]; then
+	echo "Unzipping $openamzip"
+	unzip -qn $openamzip -d /opt/repo/bin
+fi
+if [ -e "$openambin" ]; then
+	mv $openambin/*STS-Server*.war $openambin/STS-Server.war
+	cp -r $openambin/AM*.war webapps/openam.war
 else
-	curl http://download.forgerock.org/downloads/openam/openam_link.js | \
-   grep -o "http://.*\.war" | xargs curl -o webapps/openam.war
+	echo "Did not find any openam folder at $openambin, and don't have any open access to zipfile $openamzip"	
 fi
 
 cd /usr/local/tomcat 
