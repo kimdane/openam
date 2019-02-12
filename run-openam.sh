@@ -16,6 +16,7 @@ fi
 if [ -e "$openambin" ]; then
 	mv $openambin/*STS-Server*.war $openambin/STS-Server.war
 	cp $openambin/AM*.war $CATALINA_HOME/webapps/openam.war
+	cp -v $openambin/AM*eval*.war $CATALINA_HOME/webapps/openam.war
 else
 	echo "Did not find any openam folder at $openambin, and don't have any open access to zipfile $openamzip"	
 fi
